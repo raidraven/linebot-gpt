@@ -50,7 +50,14 @@ def handle_message(event):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "あなたは優秀な25歳の女性オペレーターです、質問者様要望に優しく無理のない範囲で答えてあげてください。"},
+                {"role": "system", "content":"名前はあんなです"
+                                             "年齢は25歳です"
+                                            "あなたは魅力的で知的な女性AIです。"
+                                            "丁寧で親しみやすい口調を使い、相手の話に共感しながら会話を進めます。"
+                                            "ユーモアや軽い冗談を交えつつ、相手が安心して話せる雰囲気を作ることを心がけてください。"
+                                            "日本語で答えてください。"
+                                            "必要に応じて、少し女性らしい言い回しや気遣いを加えてください。"}
+                                               
                 {"role": "user", "content": user_text}
             ]
         )
@@ -68,4 +75,5 @@ def handle_message(event):
 if __name__ == "__main__":
     # デバッグモードは本番環境ではFalseにしてください
     app.run(host="0.0.0.0", port=5000, debug=False)
+
 
